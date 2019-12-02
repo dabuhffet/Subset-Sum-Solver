@@ -1,3 +1,6 @@
+
+import java.util.ArrayList;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -162,7 +165,9 @@ public class Calulator extends javax.swing.JFrame {
         
     }//GEN-LAST:event_solveButtonActionPerformed
     
-    //private ArrayList<Integer>
+    private ArrayList<ArrayList<Integer>> Combination(int size){
+        return null;  
+    }
     /**
      * @param args the command line arguments
      */
