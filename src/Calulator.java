@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class Calulator extends javax.swing.JFrame {
 
-    private int k;
+    //private int k;
     public Calulator() {
         initComponents();
     }
@@ -151,7 +151,7 @@ public class Calulator extends javax.swing.JFrame {
 
     private void solveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_solveButtonActionPerformed
         // TODO add your handling code here:
-        this.k = Integer.parseInt(sum.getText());
+        int k = Integer.parseInt(sum.getText());
         String temp = arrayText.getText();
         String[] temp2 = temp.split(",");
         int size = temp2.length;
@@ -162,11 +162,22 @@ public class Calulator extends javax.swing.JFrame {
             set[i] = Integer.parseInt(temp2[i]);
             System.out.println(set[i]);
         }
-        System.out.println(Combination(4));
-        ArrayList<ArrayList<Integer>> temp3 = Combination(size);
-        System.out.println(temp3);
-        
+        ArrayList<ArrayList<Integer>> combinationArray = Combination(size);
+        System.out.println(FindSubsetSum(combinationArray, k, set));
     }//GEN-LAST:event_solveButtonActionPerformed
+    private ArrayList<ArrayList<Integer>> FindSubsetSum(ArrayList<ArrayList<Integer>> combination, int sum, int[] set){
+       ArrayList<ArrayList<Integer>> subsetSums= new ArrayList<ArrayList<Integer>>();
+        for(int i = 0; i < combination.size() ; i++){
+           int tempSum = 0;
+           for(int j=0; j< combination.get(i).size() ; j++){
+               tempSum+= combination.get(i).get(j);
+           }
+           if(tempSum == sum){
+               subsetSums.add(combination.get(i));
+           }
+       }
+        return subsetSums;
+    }
     
     private ArrayList<ArrayList<Integer>> Combination(int size){
         ArrayList<ArrayList<Integer>> combinations = new ArrayList<ArrayList<Integer>>();
