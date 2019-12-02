@@ -162,11 +162,51 @@ public class Calulator extends javax.swing.JFrame {
             set[i] = Integer.parseInt(temp2[i]);
             System.out.println(set[i]);
         }
+        System.out.println(Combination(4));
+        ArrayList<ArrayList<Integer>> temp3 = Combination(size);
+        System.out.println(temp3);
         
     }//GEN-LAST:event_solveButtonActionPerformed
     
     private ArrayList<ArrayList<Integer>> Combination(int size){
-        return null;  
+        ArrayList<ArrayList<Integer>> combinations = new ArrayList<ArrayList<Integer>>();
+        int start, move, i, candidate;
+        int nopts[] = new int[size+2];
+        int option[][] = new int[size+2][size+2];
+        
+        start= move=0;
+        nopts[start]=1;
+        
+        while(nopts[start]>0){
+            if(nopts[move]>0){
+                move++;
+                nopts[move]=0;
+                
+                if(move != size+1){
+                    for(candidate=size ; candidate>=1 ; candidate--){
+                        for(i=move-1;i>=1;i--){
+                            if(candidate >= option[i][nopts[i]]){break;}
+                        }
+                        if(!(i>=1)){
+                            option[move][++nopts[move]]=candidate;
+                        }
+                    }
+                }
+            }else{
+                ArrayList<Integer> tempArray= new ArrayList<Integer>();
+                for(i=1;i<move;i++){
+                    System.out.println(option[i][nopts[i]]);
+                    tempArray.add(option[i][nopts[i]]);
+                }
+                if(tempArray.size()!=0){
+                    combinations.add(tempArray);
+                }
+                move--;
+                nopts[move]--;
+            }
+        }
+        //System.out.println(combinations);
+        return combinations;  
     }
     /**
      * @param args the command line arguments
