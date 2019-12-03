@@ -1,6 +1,5 @@
 
 import java.awt.Image;
-import java.awt.Toolkit;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,11 +13,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  *
@@ -26,7 +20,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  */
 public class Calculator extends javax.swing.JFrame {
 
-    //private int k;
     public Calculator() {
         initComponents();
     }
@@ -41,30 +34,30 @@ public class Calculator extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLayeredPane2 = new javax.swing.JLayeredPane();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        uploadFileButton = new javax.swing.JButton();
-        fileNameLabel = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        displayAnswers = new javax.swing.JTextArea();
+        framePanel = new javax.swing.JPanel();
+        titlePanel = new javax.swing.JPanel();
+        projectLabel = new javax.swing.JLabel();
+        logoLabel = new javax.swing.JLabel();
+        titleLabel = new javax.swing.JLabel();
+        namesLabel = new javax.swing.JLabel();
+        layerPane = new javax.swing.JLayeredPane();
+        calculatorTabs = new javax.swing.JTabbedPane();
         inputPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        sumLabel = new javax.swing.JLabel();
         sum = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        ArrayTextScrollPane = new javax.swing.JScrollPane();
         arrayText = new javax.swing.JTextArea();
         solveButton = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
+        setLabel = new javax.swing.JLabel();
+        answersLabel = new javax.swing.JLabel();
+        displayAnswers1ScrollPane = new javax.swing.JScrollPane();
         displayAnswers1 = new javax.swing.JTextArea();
+        uploadFilePanel = new javax.swing.JPanel();
+        uploadFileButton = new javax.swing.JButton();
+        fileNameLabel = new javax.swing.JLabel();
+        answers1Label = new javax.swing.JLabel();
+        displayAnswersScrollPane = new javax.swing.JScrollPane();
+        displayAnswers = new javax.swing.JTextArea();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -81,62 +74,148 @@ public class Calculator extends javax.swing.JFrame {
         setTitle("Subset Sum Calculator");
         setBackground(new java.awt.Color(0, 95, 137));
 
-        jPanel4.setBackground(new java.awt.Color(0, 95, 137));
+        framePanel.setBackground(new java.awt.Color(0, 95, 137));
 
-        jPanel3.setBackground(new java.awt.Color(0, 95, 137));
+        titlePanel.setBackground(new java.awt.Color(0, 95, 137));
 
-        jLabel4.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(230, 236, 235));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel4.setText("CMSC 142 C-2L Project");
+        projectLabel.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        projectLabel.setForeground(new java.awt.Color(230, 236, 235));
+        projectLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        projectLabel.setText("CMSC 142 C-2L Project");
 
         ImageIcon myImage = new ImageIcon(getClass().getResource("/images/calculator.png"));
         Image img1 = myImage.getImage();
         Image img2 = img1.getScaledInstance(83, 83,Image.SCALE_SMOOTH);
         ImageIcon i = new ImageIcon(img2);
-        jLabel8.setIcon(i);
+        logoLabel.setIcon(i);
 
-        jLabel5.setFont(new java.awt.Font("Anton", 1, 36)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(230, 236, 235));
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Subset Sum Calculator");
+        titleLabel.setFont(new java.awt.Font("Anton", 0, 36)); // NOI18N
+        titleLabel.setForeground(new java.awt.Color(230, 236, 235));
+        titleLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        titleLabel.setText("Subset Sum Calculator");
 
-        jLabel9.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(230, 236, 235));
-        jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel9.setText("Samarista, Cho, Ponce de Leon");
+        namesLabel.setFont(new java.awt.Font("Arial", 0, 10)); // NOI18N
+        namesLabel.setForeground(new java.awt.Color(230, 236, 235));
+        namesLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        namesLabel.setText("Samarista, Cho, Ponce de Leon");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+        javax.swing.GroupLayout titlePanelLayout = new javax.swing.GroupLayout(titlePanel);
+        titlePanel.setLayout(titlePanelLayout);
+        titlePanelLayout.setHorizontalGroup(
+            titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(titlePanelLayout.createSequentialGroup()
+                .addComponent(logoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 356, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGroup(titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(projectLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(namesLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titlePanelLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel5)))
+                        .addComponent(titleLabel)))
                 .addGap(22, 22, 22))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+        titlePanelLayout.setVerticalGroup(
+            titlePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(logoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, titlePanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(titleLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
+                .addComponent(projectLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel9)
+                .addComponent(namesLabel)
                 .addGap(15, 15, 15))
         );
 
-        jTabbedPane1.setBackground(new java.awt.Color(160, 197, 207));
+        calculatorTabs.setBackground(new java.awt.Color(160, 197, 207));
 
-        jPanel1.setBackground(new java.awt.Color(160, 197, 207));
+        inputPanel.setBackground(new java.awt.Color(160, 197, 207));
+
+        sumLabel.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        sumLabel.setForeground(new java.awt.Color(0, 95, 137));
+        sumLabel.setText("ENTER SUM:");
+
+        sum.setBackground(new java.awt.Color(230, 236, 245));
+
+        arrayText.setBackground(new java.awt.Color(230, 236, 245));
+        arrayText.setColumns(20);
+        arrayText.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        arrayText.setRows(5);
+        arrayText.setText("values must be comma-separated");
+        arrayText.setToolTipText("");
+        ArrayTextScrollPane.setViewportView(arrayText);
+
+        solveButton.setBackground(new java.awt.Color(230, 236, 245));
+        solveButton.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        solveButton.setForeground(new java.awt.Color(0, 95, 137));
+        solveButton.setText("SOLVE");
+        solveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                solveButtonActionPerformed(evt);
+            }
+        });
+
+        setLabel.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        setLabel.setForeground(new java.awt.Color(0, 95, 137));
+        setLabel.setText("ENTER SET:");
+
+        answersLabel.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        answersLabel.setForeground(new java.awt.Color(0, 95, 137));
+        answersLabel.setText("SUBSET SUMS:");
+
+        displayAnswers1.setBackground(new java.awt.Color(230, 236, 245));
+        displayAnswers1.setColumns(20);
+        displayAnswers1.setRows(5);
+        displayAnswers1.setEditable(false);
+        displayAnswers1ScrollPane.setViewportView(displayAnswers1);
+
+        javax.swing.GroupLayout inputPanelLayout = new javax.swing.GroupLayout(inputPanel);
+        inputPanel.setLayout(inputPanelLayout);
+        inputPanelLayout.setHorizontalGroup(
+            inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(inputPanelLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(displayAnswers1ScrollPane, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(inputPanelLayout.createSequentialGroup()
+                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sumLabel)
+                            .addComponent(sum, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(inputPanelLayout.createSequentialGroup()
+                                .addComponent(setLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(131, 211, Short.MAX_VALUE))
+                            .addComponent(ArrayTextScrollPane)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inputPanelLayout.createSequentialGroup()
+                        .addComponent(answersLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(solveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(23, 23, 23))
+        );
+        inputPanelLayout.setVerticalGroup(
+            inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(inputPanelLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(setLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sumLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(sum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ArrayTextScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(solveButton)
+                    .addComponent(answersLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(displayAnswers1ScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        calculatorTabs.addTab("Input Set", inputPanel);
+
+        uploadFilePanel.setBackground(new java.awt.Color(160, 197, 207));
 
         uploadFileButton.setBackground(new java.awt.Color(230, 236, 245));
         uploadFileButton.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
@@ -150,177 +229,87 @@ public class Calculator extends javax.swing.JFrame {
 
         fileNameLabel.setText("...");
 
-        jLabel6.setBackground(new java.awt.Color(230, 236, 245));
-        jLabel6.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 95, 137));
-        jLabel6.setText("SUBSET SUMS:");
+        answers1Label.setBackground(new java.awt.Color(230, 236, 245));
+        answers1Label.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        answers1Label.setForeground(new java.awt.Color(0, 95, 137));
+        answers1Label.setText("SUBSET SUMS:");
 
         displayAnswers.setBackground(new java.awt.Color(230, 236, 245));
         displayAnswers.setColumns(20);
         displayAnswers.setRows(5);
-        jScrollPane2.setViewportView(displayAnswers);
+        displayAnswers.setEditable(false);
+        displayAnswersScrollPane.setViewportView(displayAnswers);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout uploadFilePanelLayout = new javax.swing.GroupLayout(uploadFilePanel);
+        uploadFilePanel.setLayout(uploadFilePanelLayout);
+        uploadFilePanelLayout.setHorizontalGroup(
+            uploadFilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(uploadFilePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(uploadFilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(displayAnswersScrollPane)
+                    .addGroup(uploadFilePanelLayout.createSequentialGroup()
+                        .addGroup(uploadFilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(uploadFilePanelLayout.createSequentialGroup()
                                 .addComponent(uploadFileButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(fileNameLabel))
-                            .addComponent(jLabel6))
-                        .addGap(0, 278, Short.MAX_VALUE)))
+                            .addComponent(answers1Label))
+                        .addGap(0, 284, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        uploadFilePanelLayout.setVerticalGroup(
+            uploadFilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(uploadFilePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(uploadFilePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(uploadFileButton)
                     .addComponent(fileNameLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6)
+                .addComponent(answers1Label)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(127, Short.MAX_VALUE))
+                .addComponent(displayAnswersScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Load File", jPanel1);
+        calculatorTabs.addTab("Load File", uploadFilePanel);
 
-        inputPanel.setBackground(new java.awt.Color(160, 197, 207));
+        layerPane.setLayer(calculatorTabs, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 95, 137));
-        jLabel1.setText("ENTER SUM:");
-
-        sum.setBackground(new java.awt.Color(230, 236, 245));
-        sum.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sumActionPerformed(evt);
-            }
-        });
-
-        arrayText.setBackground(new java.awt.Color(230, 236, 245));
-        arrayText.setColumns(20);
-        arrayText.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        arrayText.setRows(5);
-        arrayText.setText("values must be comma-separated");
-        arrayText.setToolTipText("");
-        jScrollPane1.setViewportView(arrayText);
-
-        solveButton.setBackground(new java.awt.Color(230, 236, 245));
-        solveButton.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        solveButton.setForeground(new java.awt.Color(0, 95, 137));
-        solveButton.setText("SOLVE");
-        solveButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                solveButtonActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 95, 137));
-        jLabel2.setText("ENTER SET:");
-
-        jLabel7.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 95, 137));
-        jLabel7.setText("SUBSET SUMS:");
-
-        displayAnswers1.setBackground(new java.awt.Color(230, 236, 245));
-        displayAnswers1.setColumns(20);
-        displayAnswers1.setRows(5);
-        jScrollPane3.setViewportView(displayAnswers1);
-
-        javax.swing.GroupLayout inputPanelLayout = new javax.swing.GroupLayout(inputPanel);
-        inputPanel.setLayout(inputPanelLayout);
-        inputPanelLayout.setHorizontalGroup(
-            inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(inputPanelLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(inputPanelLayout.createSequentialGroup()
-                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(sum, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(inputPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(131, 209, Short.MAX_VALUE))
-                            .addComponent(jScrollPane1)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inputPanelLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(solveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(23, 23, 23))
-        );
-        inputPanelLayout.setVerticalGroup(
-            inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(inputPanelLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(solveButton)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 112, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Input Set", inputPanel);
-
-        jLayeredPane2.setLayer(jTabbedPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
-        jLayeredPane2.setLayout(jLayeredPane2Layout);
-        jLayeredPane2Layout.setHorizontalGroup(
-            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane2Layout.createSequentialGroup()
+        javax.swing.GroupLayout layerPaneLayout = new javax.swing.GroupLayout(layerPane);
+        layerPane.setLayout(layerPaneLayout);
+        layerPaneLayout.setHorizontalGroup(
+            layerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layerPaneLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(142, Short.MAX_VALUE))
+                .addComponent(calculatorTabs, javax.swing.GroupLayout.PREFERRED_SIZE, 462, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
-        jLayeredPane2Layout.setVerticalGroup(
-            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane2Layout.createSequentialGroup()
+        layerPaneLayout.setVerticalGroup(
+            layerPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layerPaneLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPane1))
+                .addComponent(calculatorTabs, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        javax.swing.GroupLayout framePanelLayout = new javax.swing.GroupLayout(framePanel);
+        framePanel.setLayout(framePanelLayout);
+        framePanelLayout.setHorizontalGroup(
+            framePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(framePanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(framePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(layerPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(titlePanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
+        framePanelLayout.setVerticalGroup(
+            framePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(framePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(titlePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(layerPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -328,13 +317,13 @@ public class Calculator extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(framePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(framePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -342,7 +331,7 @@ public class Calculator extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void solveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_solveButtonActionPerformed
-        // TODO add your handling code here:
+        //Loads the input text and converts to int
         int k = Integer.parseInt(sum.getText());
         String temp = arrayText.getText();
         String[] temp2 = temp.split(",");
@@ -350,15 +339,13 @@ public class Calculator extends javax.swing.JFrame {
         int[] set = new int[size];
 
         //needs idiotproofing
-        System.out.println("Added the following numbers in the set:"); // added for easier debugging in the command line
         for(int i = 0; i < size; i++){
             set[i] = Integer.parseInt(temp2[i]);
-            
-            System.out.println(set[i]);
         }
+        //gets combination and list of subset sums
         ArrayList<ArrayList<Integer>> combinationArray = Combination(size);
         ArrayList<int[]> answerArray = FindSubsetSum(combinationArray, k, set);
-//        String []columns = new String[]{"Answers"};
+        //Converts list to a string that will be displayed in the text field
         String textToDisplay = "";
         for(int i = 0; i < answerArray.size() ; i++){
            for(int j=0; j< answerArray.get(i).length ; j++){
@@ -371,12 +358,8 @@ public class Calculator extends javax.swing.JFrame {
 
     }//GEN-LAST:event_solveButtonActionPerformed
 
-    private void sumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sumActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sumActionPerformed
-
     private void uploadFileButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadFileButtonActionPerformed
-        // TODO add your handling code here:
+        //File reading tab that reads input file
         JFileChooser j = new JFileChooser();
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Only .txt files", "txt", "text");
         j.setFileFilter(filter);
@@ -386,14 +369,17 @@ public class Calculator extends javax.swing.JFrame {
             // set the label to the path of the selected file 
             fileNameLabel.setText(j.getSelectedFile().getAbsolutePath()); 
             String filename = j.getSelectedFile().getAbsolutePath();
-        File f = new File(filename);
+            File f = new File(filename);
         try { 
+            //read file
             FileReader fileReader = new FileReader(f);
             BufferedReader bReader = new BufferedReader(fileReader);
             String line = bReader.readLine();
+            
             int numOfSets = Integer.parseInt(line);
-            System.out.println(numOfSets);
             int arrayOfSums[] = new int[numOfSets];
+            
+            //read lines
             ArrayList<int []> arrayOfSets = new ArrayList<>(); 
             for(int i = 0; i < numOfSets; i++){
                 line = bReader.readLine();
@@ -411,6 +397,7 @@ public class Calculator extends javax.swing.JFrame {
             }
             ArrayList<int[]> answerArray = null;
             String textToDisplay = "";
+            //combination and find subset sums of each input and then manipulate string to be displayed in text field
             for(int i = 0; i < numOfSets; i++){
                 answerArray = FindSubsetSum(Combination(arrayOfSets.get(i).length), arrayOfSums[i], arrayOfSets.get(i));
                 textToDisplay = textToDisplay+ "Sums of "+ Integer.toString(arrayOfSums[i]) +":\n";
@@ -426,8 +413,6 @@ public class Calculator extends javax.swing.JFrame {
                     textToDisplay += "\n";
                 }textToDisplay += "\n";
             }
-            
-        
             displayAnswers.setText(textToDisplay);
             System.out.println(textToDisplay);
         } catch (FileNotFoundException ex) {
@@ -446,32 +431,25 @@ public class Calculator extends javax.swing.JFrame {
            int tempSum = 0;
            int[] tempArray = new int[combination.get(i).size()];
            for(int j=0; j < combination.get(i).size() ; j++){
-               tempSum+= set[(combination.get(i).get(j)) - 1];
-               tempArray[j] = set[(combination.get(i).get(j)) - 1];
-               if(tempSum > sum) break;
-           }
-           
-           
-           
+               tempSum+= set[(combination.get(i).get(j)) - 1]; //summation of different combinations stored in tempsum
+               tempArray[j] = set[(combination.get(i).get(j)) - 1]; //stores current value from the set
+               if(tempSum > sum) break; //if tempsum is already greater than sum, it halts
+           }    
            if(tempSum == sum){
                int foundFlag = 0; // Found flag for signaling program if the tempArray is already inside the subsetSums array
                for(int x = 0; x < subsetSums.size(); x++) {
                     if(Arrays.equals(subsetSums.get(x), tempArray)) foundFlag = 1;   // sets foundFlag to 1 if found
-               }
-               
+               }               
                if(foundFlag != 1) { // if tempArray is not already found in subsetSums, we add the tempArray to the subset Sums
                    subsetSums.add(tempArray);
-               }
-               
-               
-           }
-
-           
+               }          
+           }    
        }
         return subsetSums;
     }
     
     private ArrayList<ArrayList<Integer>> Combination(int size){
+        //backtracking combination that returns 2D arraylist
         ArrayList<ArrayList<Integer>> combinations = new ArrayList<>();
         int start, move, i, candidate;
         int nopts[] = new int[size+2];
@@ -500,7 +478,7 @@ public class Calculator extends javax.swing.JFrame {
                 for(i=1;i<move;i++){
                     tempArray.add(option[i][nopts[i]]);
                 }
-                if(!tempArray.isEmpty()){
+                if(!tempArray.isEmpty()){ //if empty, dont add to solutions
                     combinations.add(tempArray);
                 }
                 move--;
@@ -509,15 +487,7 @@ public class Calculator extends javax.swing.JFrame {
         }
         return combinations;  
     }
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -534,9 +504,7 @@ public class Calculator extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(Calculator.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Calculator().setVisible(true);
@@ -545,30 +513,30 @@ public class Calculator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane ArrayTextScrollPane;
+    private javax.swing.JLabel answers1Label;
+    private javax.swing.JLabel answersLabel;
     private javax.swing.JTextArea arrayText;
+    private javax.swing.JTabbedPane calculatorTabs;
     private javax.swing.JTextArea displayAnswers;
     private javax.swing.JTextArea displayAnswers1;
+    private javax.swing.JScrollPane displayAnswers1ScrollPane;
+    private javax.swing.JScrollPane displayAnswersScrollPane;
     private javax.swing.JLabel fileNameLabel;
+    private javax.swing.JPanel framePanel;
     private javax.swing.JPanel inputPanel;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JLayeredPane jLayeredPane2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JLayeredPane layerPane;
+    private javax.swing.JLabel logoLabel;
+    private javax.swing.JLabel namesLabel;
+    private javax.swing.JLabel projectLabel;
+    private javax.swing.JLabel setLabel;
     private javax.swing.JButton solveButton;
     private javax.swing.JTextField sum;
+    private javax.swing.JLabel sumLabel;
+    private javax.swing.JLabel titleLabel;
+    private javax.swing.JPanel titlePanel;
     private javax.swing.JButton uploadFileButton;
+    private javax.swing.JPanel uploadFilePanel;
     // End of variables declaration//GEN-END:variables
 }
