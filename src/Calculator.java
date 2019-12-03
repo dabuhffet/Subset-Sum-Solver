@@ -19,7 +19,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
  * @author rainier
  */
 public class Calculator extends javax.swing.JFrame {
-
+    private String mode = "light";
     public Calculator() {
         initComponents();
     }
@@ -88,6 +88,11 @@ public class Calculator extends javax.swing.JFrame {
         Image img2 = img1.getScaledInstance(83, 83,Image.SCALE_SMOOTH);
         ImageIcon i = new ImageIcon(img2);
         logoLabel.setIcon(i);
+        logoLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                logoLabelMouseClicked(evt);
+            }
+        });
 
         titleLabel.setFont(new java.awt.Font("Anton", 0, 36)); // NOI18N
         titleLabel.setForeground(new java.awt.Color(230, 236, 235));
@@ -423,6 +428,45 @@ public class Calculator extends javax.swing.JFrame {
         }else fileNameLabel.setText("No file chosen..."); 
         
     }//GEN-LAST:event_uploadFileButtonActionPerformed
+
+    private void logoLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoLabelMouseClicked
+        //dark mode XD
+        if(this.mode.equals("light")){
+            framePanel.setBackground(new java.awt.Color(0,0,0));
+            inputPanel.setBackground(new java.awt.Color(18,18,18));
+            uploadFilePanel.setBackground(new java.awt.Color(18,18,18));
+            titlePanel.setBackground(new java.awt.Color(0,0,0));
+            sum.setBackground(new java.awt.Color(66,66,66));
+            arrayText.setBackground(new java.awt.Color(66,66,66));
+            displayAnswers1.setBackground(new java.awt.Color(66,66,66));
+            displayAnswers.setBackground(new java.awt.Color(66,66,66));
+            solveButton.setForeground(new java.awt.Color(66, 66, 66));
+            uploadFileButton.setForeground(new java.awt.Color(66, 66, 66));
+            sumLabel.setForeground(new java.awt.Color(230,236,235));
+            setLabel.setForeground(new java.awt.Color(230,236,235));
+            answersLabel.setForeground(new java.awt.Color(230,236,235));
+            answers1Label.setForeground(new java.awt.Color(230,236,235));
+            fileNameLabel.setForeground(new java.awt.Color(230,236,235));
+            this.mode = "dark";
+        }else{
+            framePanel.setBackground(new java.awt.Color(0,95,137));
+            inputPanel.setBackground(new java.awt.Color(160,197,207));
+            uploadFilePanel.setBackground(new java.awt.Color(160,197,207));
+            titlePanel.setBackground(new java.awt.Color(0,95,137));
+            sum.setBackground(new java.awt.Color(230,236,245));
+            arrayText.setBackground(new java.awt.Color(230,236,245));
+            displayAnswers1.setBackground(new java.awt.Color(230,236,245));
+            displayAnswers.setBackground(new java.awt.Color(230,236,245));
+            solveButton.setForeground(new java.awt.Color(0,95,137));
+            uploadFileButton.setForeground(new java.awt.Color(0,95,137));
+            sumLabel.setForeground(new java.awt.Color(0,95,137));
+            setLabel.setForeground(new java.awt.Color(0,95,137));
+            answersLabel.setForeground(new java.awt.Color(0,95,137));
+            answers1Label.setForeground(new java.awt.Color(0,95,137));
+            fileNameLabel.setForeground(new java.awt.Color(0,0,0));
+            this.mode = "light";
+        }
+    }//GEN-LAST:event_logoLabelMouseClicked
     
     private ArrayList<int[]> FindSubsetSum(ArrayList<ArrayList<Integer>> combination, int sum, int[] set){
        ArrayList<int[]> subsetSums= new ArrayList<>();

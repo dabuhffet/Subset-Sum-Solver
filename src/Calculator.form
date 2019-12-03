@@ -149,6 +149,9 @@
                   <Connection code="i" type="code"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="logoLabelMouseClicked"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="ImageIcon myImage = new ImageIcon(getClass().getResource(&quot;/images/calculator.png&quot;));&#xa;Image img1 = myImage.getImage();&#xa;Image img2 = img1.getScaledInstance(83, 83,Image.SCALE_SMOOTH);&#xa;ImageIcon i = new ImageIcon(img2);"/>
               </AuxValues>
