@@ -445,9 +445,10 @@ public class Calculator extends javax.swing.JFrame {
         for(int i = 0; i < combination.size() ; i++){
            int tempSum = 0;
            int[] tempArray = new int[combination.get(i).size()];
-           for(int j=0; j< combination.get(i).size() - 1 ; j++){
-               tempSum+= set[combination.get(i).get(j) - 1];
-               tempArray[j] = set[combination.get(i).get(j) - 1];
+           for(int j=0; j < combination.get(i).size() ; j++){
+               tempSum+= set[(combination.get(i).get(j)) - 1];
+               tempArray[j] = set[(combination.get(i).get(j)) - 1];
+               if(tempSum > sum) break;
            }
            
            
@@ -464,6 +465,8 @@ public class Calculator extends javax.swing.JFrame {
                
                
            }
+
+           
        }
         return subsetSums;
     }
