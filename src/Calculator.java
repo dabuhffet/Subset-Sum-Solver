@@ -7,6 +7,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -84,7 +85,7 @@ public class Calculator extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(0, 95, 137));
 
-        jLabel4.setFont(new java.awt.Font("Ubuntu Light", 1, 36)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Oswald SemiBold", 1, 40)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(230, 236, 235));
         jLabel4.setText("Subset Sum Calculator");
 
@@ -100,17 +101,17 @@ public class Calculator extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addGap(22, 22, 22))
         );
 
         jTabbedPane1.setBackground(new java.awt.Color(160, 197, 207));
@@ -173,22 +174,18 @@ public class Calculator extends javax.swing.JFrame {
                     .addGroup(inputPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, inputPanelLayout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(7, 7, 7))
-                            .addGroup(inputPanelLayout.createSequentialGroup()
-                                .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)))
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addGap(18, 18, 18)
                         .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(sum, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(inputPanelLayout.createSequentialGroup()
                         .addGap(136, 136, 136)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 3, Short.MAX_VALUE))
+                .addGap(0, 5, Short.MAX_VALUE))
             .addGroup(inputPanelLayout.createSequentialGroup()
                 .addGap(207, 207, 207)
                 .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -351,8 +348,11 @@ public class Calculator extends javax.swing.JFrame {
         int[] set = new int[size];
 
         //needs idiotproofing
+        System.out.println("Added the following numbers in the set:"); // added for easier debugging in the command line
         for(int i = 0; i < size; i++){
             set[i] = Integer.parseInt(temp2[i]);
+            
+            System.out.println(set[i]);
         }
         ArrayList<ArrayList<Integer>> combinationArray = Combination(size);
         ArrayList<int[]> answerArray = FindSubsetSum(combinationArray, k, set);
@@ -447,8 +447,20 @@ public class Calculator extends javax.swing.JFrame {
                tempSum+= set[combination.get(i).get(j) - 1];
                tempArray[j] = set[combination.get(i).get(j) - 1];
            }
+           
+           
+           
            if(tempSum == sum){
-               subsetSums.add(tempArray);
+               int foundFlag = 0; // Found flag for signaling program if the tempArray is already inside the subsetSums array
+               for(int x = 0; x < subsetSums.size(); x++) {
+                    if(Arrays.equals(subsetSums.get(x), tempArray)) foundFlag = 1;   // sets foundFlag to 1 if found
+               }
+               
+               if(foundFlag != 1) { // if tempArray is not already found in subsetSums, we add the tempArray to the subset Sums
+                   subsetSums.add(tempArray);
+               }
+               
+               
            }
        }
         return subsetSums;
